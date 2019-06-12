@@ -1,0 +1,60 @@
+body.sticky-enabled {
+  .header {
+    opacity: 1;
+    pointer-events: all;
+    transform: scaleY(1);
+
+    .header__logo {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 5px 15px;
+    z-index: 1000;
+
+    @media screen and (max-width: 759px) {
+      background: #e5e5e5;
+      box-shadow: 0 0 3px 3px rgba(0,0,0,0.3);
+    }
+
+    @include breakpoint("tablet") {
+      height: 60px;
+      padding: 0;
+      opacity: 0;
+      background: #464646;
+      pointer-events: none;
+      transform: scaleY(0);
+      transform-origin: center top;
+      transition: transform 300ms linear;
+    }
+
+    @include breakpoint("desktop") {
+        height: 80px;
+    }
+
+    .header__logo {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      font-size: 30px;
+      line-height: 1;
+      font-family: $font-ubuntu;
+      text-decoration: none;
+      color: #fff;
+
+      @include breakpoint("tablet") {
+        right: auto;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 300ms linear 300ms;
+      }
+    }
+}

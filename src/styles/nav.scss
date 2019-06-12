@@ -1,0 +1,136 @@
+body.nav-active {
+  @media screen and (max-width: 759px) {
+    .nav {
+      position: fixed;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      height: calc(100% - 50px);
+      background: #464646;
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+}
+
+body.sticky-enabled {
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: auto;
+    max-width: 100%;
+    height: 60px;
+    padding: 0 40px;
+    opacity: 0;
+    animation: opacity-to-full 900ms linear;
+
+    @include breakpoint("tablet") {
+      opacity: 1;
+    }
+
+    @include breakpoint("desktop") {
+      height: 80px;
+    }
+
+    .nav__list {
+      flex-wrap: nowrap;
+      align-items: center;
+      height: 100%;
+      padding: 0;
+    }
+
+    .nav__item {
+      margin-top: 0;
+      margin-bottom: 0;
+
+      &.nav__item--button-secondary {
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+.nav {
+  @media screen and (max-width: 759px) {
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  @include breakpoint("tablet") {
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .nav__list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .nav__item {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+
+    @include breakpoint("tablet") {
+      width: 90px;
+      margin-top: 40px;
+    }
+
+    &.nav__item--button {
+      width: calc(50% - 8px);
+      margin-right: 8px;
+
+      @include breakpoint("tablet") {
+        width: 120px;
+        margin: 0;
+      }
+
+      .nav__link {
+        width: 100%;
+        border: 2px solid #3fc8a7;
+        background: #3fc8a7;
+        color: #464646;
+
+        @include breakpoint("tablet") {
+          line-height: 39px;
+          height: 40px;
+        }
+      }
+    }
+
+    &.nav__item--button-secondary {
+      margin: 0 0 10px 8px;
+
+      @include breakpoint("tablet") {
+        margin-bottom: 0;
+        margin-left: 20px;
+      }
+
+      .nav__link {
+        background: #464646;
+        color: #3fc8a7;
+      }
+    }
+  }
+
+  .nav__link {
+    display: block;
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
+    line-height: 29px;
+    color: #fff;
+    text-decoration: none;
+    font-family: $font-ubuntu;
+
+    &:hover {
+      color: #3fc8a7;
+    }
+  }
+}

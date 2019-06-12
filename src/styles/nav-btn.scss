@@ -1,0 +1,44 @@
+body.nav-active {
+  .nav-btn__icon {
+
+  }
+}
+
+.nav-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+
+  @include breakpoint("tablet") {
+    display: none;
+  }
+
+  .nav-btn__icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 2px;
+    background: #464646;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) translateY(-6px);
+      width: 24px;
+      height: 2px;
+      background: #464646;
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) translateY(6px);
+    }
+  }
+}

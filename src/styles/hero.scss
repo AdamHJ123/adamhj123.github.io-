@@ -1,0 +1,47 @@
+body.sticky-enabled {
+  .hero {
+    z-index: 1100;
+  }
+}
+
+.hero {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 300px;
+  height: 60vh;
+  max-height: 600px;
+  padding: 40px;
+  background: url("/dist/images/hero.jpg") center center no-repeat / cover;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(#474747, 0.993);
+  }
+
+  .hero__inner {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .hero__intro {
+    display: none;
+
+    @include breakpoint("tablet") {
+      display: block;
+      font-size: 70px;
+      margin-bottom: 20px;
+      color: #fff;
+      font-family: $font-ubuntu;
+    }
+  }
+}
